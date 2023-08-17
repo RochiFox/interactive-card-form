@@ -3,11 +3,16 @@ import "./styles.css";
 import CardLogo from "../../assets/images/card-logo.svg";
 
 function Home() {
-  const [cardName, setCardName] = useState("Jane Appleseed");
-  const [cardNumber, setCardNumber] = useState("0000 0000 0000 0000");
-  const [cardMonth, setCardMonth] = useState("00");
-  const [cardYear, setCardYear] = useState("00");
-  const [cardCvc, setCardCvc] = useState("000");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardMonth, setCardMonth] = useState("");
+  const [cardYear, setCardYear] = useState("");
+  const [cardCvc, setCardCvc] = useState("");
+
+  const [cardNameError, setCardNameError] = useState("");
+  const [cardNumberError, setCardNumberError] = useState("");
+  const [cardDateError, setCardDateError] = useState("");
+  const [cardCvcError, setCardCvcError] = useState("");
 
   const formatCardNumber = (input) => {
     const normalizedInput = input.replace(/\s/g, "");
@@ -23,25 +28,71 @@ function Home() {
     return formattedNumber;
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (!/^[A-Za-z -']{3,}$/.test(cardName)) {
+      setCardNameError("Please enter a cardholder name");
+    } else {
+      setCardNameError("");
+    }
+
+    if (!/^\d{16}$/.test(cardNumber.replace(/\s/g, ""))) {
+      setCardNumberError("Please enter a valid 16-digit card number");
+    } else {
+      setCardNumberError("");
+    }
+
+    const currentYear = new Date().getFullYear() % 100;
+    if (
+      cardYear < currentYear ||
+      cardYear > 99 ||
+      cardMonth < 1 ||
+      cardMonth > 12
+    ) {
+      setCardDateError("Can't be blank");
+    } else {
+      setCardDateError("");
+    }
+
+    if (cardCvc.length !== 3) {
+      setCardCvcError("Can't be blank");
+    } else {
+      setCardCvcError("");
+    }
+
+    if (!cardNameError && !cardNumberError && !cardDateError && !cardCvcError) {
+    }
+  };
+
   return (
     <div className="home">
       <div className="left-side">
         <div className="card card_front">
           <img src={CardLogo} alt="card logo" className="card__logo" />
-          <h3 className="card__number">{formatCardNumber(cardNumber)}</h3>
+          <h3 className="card__number">
+            {cardNumber.trim() !== ""
+              ? formatCardNumber(cardNumber)
+              : "0000 0000 0000 0000"}
+          </h3>
           <div className="card__block">
-            <p className="card__name">{cardName}</p>
+            <p className="card__name">
+              {cardName.trim() !== "" ? cardName : "Jane Appleseed"}
+            </p>
             <span className="card__date">
-              {cardMonth}/{cardYear}
+              {cardMonth.trim() !== "" ? cardMonth : "00"}/
+              {cardYear.trim() !== "" ? cardYear : "00"}
             </span>
           </div>
         </div>
         <div className="card card_back">
-          <span className="card__cvc">{cardCvc}</span>
+          <span className="card__cvc">
+            {cardCvc.trim() !== "" ? cardCvc : "000"}
+          </span>
         </div>
       </div>
       <div className="right-side">
-        <form className="form">
+        <form className="form" onSubmit={handleFormSubmit}>
           <label htmlFor="name" className="form__label">
             cardholder name
           </label>
@@ -52,6 +103,7 @@ function Home() {
             onChange={(e) => setCardName(e.target.value)}
             maxLength="26"
           />
+          <span className="form__error">{cardNameError}</span>
           <label htmlFor="number" className="form__label">
             card number
           </label>
@@ -61,11 +113,11 @@ function Home() {
             placeholder="e.g. 1234 5678 9123 0000"
             onChange={(e) => {
               const input = e.target.value.replace(/ /g, "");
-              const formattedInput = input.padEnd(16, "0");
-              setCardNumber(formattedInput);
+              setCardNumber(input);
             }}
             maxLength="16"
           />
+          <span className="form__error">{cardNumberError}</span>
           <div className="form__block">
             <div>
               <label htmlFor="date" className="form__label">
@@ -76,8 +128,6 @@ function Home() {
                 className="form__input-small"
                 placeholder="MM"
                 onChange={(e) => setCardMonth(e.target.value)}
-                min="1"
-                max="12"
               />
               <input
                 type="number"
@@ -85,6 +135,7 @@ function Home() {
                 placeholder="YY"
                 onChange={(e) => setCardYear(e.target.value)}
               />
+              <span className="form__error">{cardDateError}</span>
             </div>
             <div>
               <label htmlFor="cvc" className="form__label">
@@ -95,7 +146,9 @@ function Home() {
                 className="form__input-medium"
                 placeholder="e.g. 123"
                 onChange={(e) => setCardCvc(e.target.value)}
+                min="100"
               />
+              <span className="form__error">{cardCvcError}</span>
             </div>
           </div>
           <button className="form__button">Confirm</button>

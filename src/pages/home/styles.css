@@ -190,3 +190,12 @@ input[type="number"] {
 .form__button:hover {
   cursor: pointer;
 }
+
+.form__error {
+  color: hsl(0, 100%, 66%);
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
