@@ -93,7 +93,7 @@ input[type="number"] {
 .form {
   width: 400px;
   height: 500px;
-  margin-top: 300px;
+  margin-top: 280px;
   margin-left: 40%;
 }
 
@@ -103,7 +103,7 @@ input[type="number"] {
   letter-spacing: 0.1rem;
   font-size: 14px;
   display: block;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 5px;
 }
 
@@ -179,21 +179,24 @@ input[type="number"] {
 .form__button {
   width: 412px;
   height: 40px;
-  margin-top: 30px;
+  margin-top: 40px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   color: hsl(0, 0%, 100%);
   background-color: hsl(278, 68%, 11%);
+  transition: all 0.2s ease-in-out;
 }
 
 .form__button:hover {
   cursor: pointer;
+  background-color: hsl(277, 60%, 19%);
 }
 
 .form__error {
   color: hsl(0, 100%, 66%);
   display: flex;
+  position: absolute;
 }
 
 .hidden {
