@@ -73,6 +73,10 @@ function Home() {
     setIsFormValid(formIsValid);
   };
 
+  const handleContinueButtonClick = () => {
+    setIsFormValid(false);
+  };
+
   return (
     <div className="home">
       <div className="left-side">
@@ -108,8 +112,15 @@ function Home() {
               className="success-block__image"
             />
             <h2 className="success-block__title">Thank you!</h2>
-            <p className="success-block__subtitle">We've added your card details</p>
-            <button className="success-block__btn">Continue</button>
+            <p className="success-block__subtitle">
+              We've added your card details
+            </p>
+            <button
+              className="success-block__btn"
+              onClick={handleContinueButtonClick}
+            >
+              Continue
+            </button>
           </div>
         ) : (
           <form className="form" onSubmit={handleFormSubmit}>
