@@ -320,11 +320,11 @@ input[type="number"] {
   }
 
   .form {
-    margin: 150px auto 0;
+    margin: 150px auto 50px;
   }
 
   .success-block {
-    margin: 150px auto 0;
+    margin: 150px auto 50px;
   }
 }
 
@@ -396,6 +396,7 @@ input[type="number"] {
 
   .card_back {
     left: 6%;
+    top: 2%;
   }
 
   .success-block {
