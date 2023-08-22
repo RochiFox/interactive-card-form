@@ -150,7 +150,7 @@ function Home() {
             />
             <span className="form__error">{cardNumberError}</span>
             <div className="form__block">
-              <div>
+              <div className="form__block-small">
                 <label htmlFor="date" className="form__label">
                   exp. date (mm/yy)
                 </label>
@@ -168,7 +168,7 @@ function Home() {
                 />
                 <span className="form__error">{cardDateError}</span>
               </div>
-              <div>
+              <div className="form__block-small">
                 <label htmlFor="cvc" className="form__label">
                   cvc
                 </label>

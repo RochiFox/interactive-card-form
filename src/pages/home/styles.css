@@ -50,6 +50,7 @@ input[type="number"] {
   letter-spacing: 0.15rem;
   margin: 20px auto;
   width: 83%;
+  text-align: center;
 }
 
 .card__date {
@@ -92,7 +93,6 @@ input[type="number"] {
 
 .form {
   width: 400px;
-  height: 500px;
   margin-top: 280px;
   margin-left: 40%;
 }
@@ -110,6 +110,7 @@ input[type="number"] {
 .form__input {
   width: 100%;
   height: 40px;
+  box-sizing: border-box;
   padding-left: 10px;
   border-radius: 5px;
   border: 1px solid hsl(270, 3%, 87%);
@@ -138,6 +139,7 @@ input[type="number"] {
 .form__input-small {
   width: 60px;
   height: 30px;
+  box-sizing: border-box;
   border: 1px solid hsl(270, 3%, 87%);
   border-radius: 5px;
   margin-right: 20px;
@@ -163,6 +165,7 @@ input[type="number"] {
 .form__input-medium {
   width: 100%;
   height: 30px;
+  box-sizing: border-box;
   padding-left: 10px;
   border-radius: 5px;
   border: 1px solid hsl(270, 3%, 87%);
@@ -177,7 +180,7 @@ input[type="number"] {
 }
 
 .form__button {
-  width: 412px;
+  width: 100%;
   height: 40px;
   margin-top: 40px;
   border: none;
@@ -239,4 +242,171 @@ input[type="number"] {
 .success-block__btn:hover {
   cursor: pointer;
   background-color: hsl(277, 60%, 19%);
+}
+
+@media (max-width: 1270px) {
+  .left-side {
+    width: 25%;
+  }
+
+  .card_front {
+    left: 4%;
+  }
+
+  .card_back {
+    left: 10%;
+  }
+
+  .form {
+    width: 380px;
+    margin-left: 50%;
+  }
+
+  .form__input-small {
+    margin-right: 10px;
+  }
+
+  .success-block {
+    margin-left: 50%;
+  }
+}
+
+@media (max-width: 1040px) {
+  .home {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .left-side {
+    width: 100%;
+    height: 300px;
+  }
+
+  .right-side {
+    width: 100%;
+  }
+
+  .card {
+    width: 380px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+  }
+
+  .card_front {
+    left: 15%;
+    z-index: 2;
+  }
+
+  .card__logo {
+    width: 60px;
+  }
+
+  .card__number {
+    font-size: 24px;
+    margin: 10px auto 20px;
+  }
+
+  .card_back {
+    top: 4%;
+    left: 45%;
+  }
+
+  .card__cvc {
+    margin-top: 88px;
+    margin-right: 40px;
+  }
+
+  .form {
+    margin: 150px auto 0;
+  }
+
+  .success-block {
+    margin: 150px auto 0;
+  }
+}
+
+@media (max-width: 740px) {
+  .card_front {
+    left: 8%;
+  }
+
+  .card_back {
+    left: 25%;
+  }
+}
+
+@media (max-width: 540px) {
+  .card {
+    width: 320px;
+  }
+
+  .card__cvc {
+    margin-top: 85px;
+    margin-right: 20px;
+  }
+
+  .card__number {
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+  }
+
+
+  .card__name {
+    font-size: 14px;
+  }
+
+  .card__date {
+    font-size: 14px;
+  }
+
+  .form {
+    width: 300px;
+  }
+
+  .form__error {
+    font-size: 14px
+  }
+
+  .form__label {
+    font-size: 12px;
+  }
+
+  .form__block-small {
+    width: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  .card_front {
+    left: 4%;
+  }
+
+  .card_back {
+    left: 15%;
+  }
+}
+
+@media (max-width: 390px) {
+  .card_front {
+    left: 2%;
+  }
+
+  .card_back {
+    left: 6%;
+  }
+
+  .success-block {
+    width: 260px;
+  }
+
+  .success-block__title {
+    font-size: 24px;
+  }
+
+  .success-block__subtitle {
+    font-size: 16px;
+  }
 }
