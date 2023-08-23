@@ -411,3 +411,21 @@ input[type="number"] {
     font-size: 16px;
   }
 }
+
+@media (min-width: 1040px) and (max-height: 710px) {
+  .form {
+    margin-top: 180px;
+  }
+
+  .card_front {
+    top: 12%;
+  }
+
+  .card_back {
+    top: 50%;
+  }
+
+  .success-block {
+    margin-top: 180px;
+  }
+}
